@@ -26,8 +26,19 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Jops" component={JopsDrawer} />
-        <Stack.Screen name="JopDetail" component={JopDetail} />
+        <Stack.Screen
+          name="Jops"
+          component={JopsDrawer}
+          options={{headerTintColor: '#FF5C58'}}
+        />
+        <Stack.Screen
+          name="JopDetail"
+          component={JopDetail}
+          options={({route}) => ({
+            title: route.params.jopList.name,
+            headerTintColor: '#FF5C58',
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

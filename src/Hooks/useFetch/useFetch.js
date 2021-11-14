@@ -5,7 +5,6 @@ export const useFetch = url => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(url);
   const fetchData = async () => {
     try {
       const {data: responseData} = await axios.get(url);
