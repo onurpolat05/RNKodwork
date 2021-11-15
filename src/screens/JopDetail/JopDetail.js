@@ -3,11 +3,16 @@ import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import RenderHtml from 'react-native-render-html';
 import {w, h} from '../../utiles/dimensions';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useDispatch} from 'react-redux';
 export default function JopDetail({route}) {
-  console.log(route.params.jopList);
+  const dispatch = useDispatch();
   const jop = route.params.jopList;
   const source = {
     html: jop.contents,
+  };
+  const handleAddFavorite = () => {
+    dispatch({type: 'ADD_FAVORİTE', payload: jop.id});
   };
   return (
     <View>
@@ -30,11 +35,11 @@ export default function JopDetail({route}) {
         <TouchableOpacity
           style={styles.button}
           onPress={() => console.log('here')}>
+          <AntDesign name="caretright" size={15} color="#fff" />
           <Text style={styles.button_text}>Submit</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => console.log('here')}>
+        <TouchableOpacity style={styles.button} onPress={handleAddFavorite}>
+          <AntDesign name="heart" size={15} color="#fff" />
           <Text style={styles.button_text}>Favorite Jop</Text>
         </TouchableOpacity>
       </View>
@@ -76,13 +81,17 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#FF5C58',
-    padding: 7,
+    padding: 10,
     width: w / 2.5,
     borderRadius: 4,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button_text: {
     color: 'white',
-    textAlign: 'center',
     fontWeight: 'bold',
+    marginLeft: 3,
+    fontSize: 15,
   },
 });
