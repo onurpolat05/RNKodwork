@@ -3,7 +3,6 @@ export default function (state, action) {
     case 'ADD_FAVORİTE':
       let idAlreadyExists = state.favorites.indexOf(action.payload) > -1;
       // make a copy of the existing array
-      console.log(idAlreadyExists);
       if (idAlreadyExists) {
         return {...state};
       } else {

@@ -12,7 +12,7 @@ export default function JopDetail({route}) {
     html: jop.contents,
   };
   const handleAddFavorite = () => {
-    dispatch({type: 'ADD_FAVORİTE', payload: jop.id});
+    dispatch({type: 'ADD_FAVORİTE', payload: jop});
   };
   return (
     <View>

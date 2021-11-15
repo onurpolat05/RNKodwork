@@ -5,7 +5,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Provider} from 'react-redux';
 import Jops from './screens/Jops/jops';
 import JopDetail from './screens/JopDetail/JopDetail';
-import FavoritedJops from './screens/FavoritedJops/FavoritedJops';
+import FavoriteJops from './screens/FavoriteJops/FavoriteJops';
 import store from './Redux/provider';
 const Drawer = createDrawerNavigator();
 
@@ -18,7 +18,7 @@ export default function App() {
         <Drawer.Screen name="JopsScreen" component={Jops} />
         <Drawer.Screen
           name="Favorited Jops"
-          component={FavoritedJops}
+          component={FavoriteJops}
           options={{headerShown: ''}}
         />
       </Drawer.Navigator>
