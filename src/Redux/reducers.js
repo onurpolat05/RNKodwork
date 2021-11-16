@@ -9,7 +9,6 @@ export default function (state, action) {
       }
 
     case 'REMOVE_FAVORİTE':
-      console.log(action.payload);
       return {
         favorites: [...state.favorites.filter(jop => jop !== action.payload)],
       };
