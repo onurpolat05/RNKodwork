@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet} from 'react-native';
+import {View, Text, ScrollView, StyleSheet, Alert} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import RenderHtml from 'react-native-render-html';
 import {w, h} from '../../utiles/dimensions';
@@ -13,6 +13,12 @@ export default function JopDetail({route}) {
   };
   const handleAddFavorite = () => {
     dispatch({type: 'ADD_FAVORİTE', payload: jop});
+  };
+  const showAlert = () => {
+    Alert.alert(
+      'Successful',
+      'Your application has been successfully received!',
+    );
   };
   return (
     <View>
@@ -32,9 +38,7 @@ export default function JopDetail({route}) {
         </ScrollView>
       </View>
       <View style={styles.button_container}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => console.log('here')}>
+        <TouchableOpacity style={styles.button} onPress={showAlert}>
           <AntDesign name="caretright" size={15} color="#fff" />
           <Text style={styles.button_text}>Submit</Text>
         </TouchableOpacity>
