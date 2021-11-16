@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, TouchableWithoutFeedback, StyleSheet} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-export default function JopCard({jopList}) {
+export default function JopCard({jopList, favorite}) {
   const navigation = useNavigation();
   const onSelect = () => {
     navigation.navigate('JopDetail', {jopList});
@@ -10,7 +10,7 @@ export default function JopCard({jopList}) {
 
   return (
     <TouchableWithoutFeedback onPress={onSelect}>
-      <View style={styles.container}>
+      <View style={favorite ? {} : styles.container}>
         <Text style={styles.jop}> {jopList.name} </Text>
         <Text> {jopList.company.name} </Text>
         <View style={styles.locations_container}>

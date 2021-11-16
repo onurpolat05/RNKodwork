@@ -15,11 +15,15 @@ export default function App() {
   const JopsDrawer = () => {
     return (
       <Drawer.Navigator screenOptions={{headerShown: ''}}>
-        <Drawer.Screen name="JopsScreen" component={Jops} />
+        <Drawer.Screen
+          name="JopsScreen"
+          component={Jops}
+          options={{title: 'Jops'}}
+        />
         <Drawer.Screen
           name="Favorited Jops"
           component={FavoriteJops}
-          options={{headerShown: ''}}
+          options={{headerShown: false}}
         />
       </Drawer.Navigator>
     );
@@ -31,7 +35,7 @@ export default function App() {
           <Stack.Screen
             name="Jops"
             component={JopsDrawer}
-            options={{headerTintColor: '#FF5C58'}}
+            options={{headerTintColor: '#FF5C58', title: 'Jops'}}
           />
           <Stack.Screen
             name="JopDetail"
